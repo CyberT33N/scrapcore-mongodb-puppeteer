@@ -1,4 +1,4 @@
-# scrapcore-mongodb-puppeteer
+# CyberT33N Scrap Bot Core
 This is the core engine of the CyberT33N Scrap Bot.
 <br />
 <br />
