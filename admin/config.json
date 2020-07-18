@@ -1,14 +1,13 @@
 {
 
-"ebay_additionalBoxes": false,
 
 "storage":"MongoDB",
 
 "enable_screenImage":"no",
 "proxy":"",
 
-"ubuntu_and_mint_username":"t33n",
-"fedora_and_centos_username":"t33n",
+"ubuntu_and_mint_username":"your-username-here",
+"fedora_and_centos_username":"your-username-here",
 
 "headless":false,
 "headless_USERAGENT":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3171.97 Safari/537.36",
