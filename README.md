@@ -2,26 +2,26 @@
 This is the core engine of the CyberT33N Scrap Bot.
 <br />
 <br />
-Database: MongoDB
+Database: **MongoDB**
 <br />
-Webdriver: Puppeteer
+Webdriver: **Puppeteer**
 
 <br />
 <br />
 ★ 𝐎𝐒 ★
 
 Warranty and Support for:<br />
-• Windows 7-10 (64-bit)<br />
-• Windows Server 2012 R2 (64-bit)<br />
+• **Windows 7-10 (64-bit)**<br />
+• **Windows Server 2012 R2 (64-bit)**<br />
 
-• MAC El Capitan (64-bit)<br />
-• MAC Sierra (64-bit)<br />
-• MAC High Sierra (64-bit)<br />
+• **MAC El Capitan (64-bit)**<br />
+• **MAC Sierra (64-bit)**<br />
+• **MAC High Sierra (64-bit)**<br />
 
-• CentOS (64-bit)<br />
-• Linux Mint (64-bit)<br />
-• Fedora (64-bit)<br />
-• Ubuntu (64-bit)<br /><br />
+• **CentOS (64-bit)**<br />
+• **Linux Mint (64-bit)**<br />
+• **Fedora (64-bit)**<br />
+• **Ubuntu (64-bit)**<br /><br />
 
 
 Normally they will work with all other versions/architectures aswell!
