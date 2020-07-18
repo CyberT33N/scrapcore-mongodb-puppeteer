@@ -1,4 +1,4 @@
-# CyberT33N Scrap Bot Core
+# CyberT33N Scrap Bot - Core Engine
 This is the core engine of the CyberT33N Scrap Bot.
 <br />
 <br />
