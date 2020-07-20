@@ -31,10 +31,13 @@ You can easily use the .iso files from the OS above with Virtual Machines, Serve
 <br />
 <br />
 
-
  _____________________________________________________
  _____________________________________________________
 
 
 <br />
 <br />
+
+
+## License  
+The CyberT33N Core engine is **not** MIT and is copyright protected by CyberT33N Software. If any scrap bot from me is MIT you can use this core engine and the scrap script itself of course for FREE for personal or commercial usage. However the re-creating/re-publishing/re-selling or any other form of modification of this core engine is not allowed.
