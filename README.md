@@ -39,7 +39,7 @@ You can easily use the .iso files from the OS above with Virtual Machines, Serve
 <br />
 
 # *DOCUMENTATION*
-Full install guides and all needed informations can be found at the DOCS at this folder:
+Full install guides and all needed informations can be found at the documentation at this folder:
 ```bash
 ./GUIDES/DOCUMENTATION/index.html
 ```
