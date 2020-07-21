@@ -47,9 +47,11 @@ Full install guides and all needed informations can be found at the documentatio
 <br />
 <br />
 Please notice that the documentation was build long time ago and is outdated and is not designed properly. It was created when I had no experience at web design. Even when the core informations are still correct some informations might be not be up 2 date anymore.
-
+<br />
+<br />
 However I used the documentation back in the days on upwork but since I not work the anymore I never updated the documentation properly to puppeteer and MongoDB. The documentation will maybe re-designed in the future but I dont think so unless there will be more customers for my bots.. It would be just a time waste for my side to create a new documentation at this point. I hope you understand.
-
+<br />
+<br />
 However if you know how Node.js, Puppeteer & MongoDB works there is literally no need to read the documentation.
 
 <br />
