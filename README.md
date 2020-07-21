@@ -38,6 +38,30 @@ You can easily use the .iso files from the OS above with Virtual Machines, Serve
 <br />
 <br />
 
+# *DOCUMENTATION*
+Full install guides and all needed informations can be found at the DOCS at this folder:
+```bash
+./GUIDES/DOCUMENTATION/index.html
+```
+
+<br />
+<br />
+Please notice that the documentation was build long time ago and is outdated and is not designed properly. It was created when I had no experience at web design. Even when the core informations are still correct some informations might be not be up 2 date anymore.
+
+However I used the documentation back in the days on upwork but since I not work the anymore I never updated the documentation properly to puppeteer and MongoDB. The documentation will maybe re-designed in the future but I dont think so unless there will be more customers for my bots.. It would be just a time waste for my side to create a new documentation at this point. I hope you understand.
+
+However if you know how Node.js, Puppeteer & MongoDB works there is literally no need to read the documentation.
+
+<br />
+<br />
+
+ _____________________________________________________
+ _____________________________________________________
+
+
+<br />
+<br />
+
 
 ## License  
 The CyberT33N Core engine is **not** MIT and is copyright protected by CyberT33N Software. If any scrap bot from me is MIT you can use this core engine and the scrap script itself of course for FREE for personal or commercial usage. However the re-creating/re-publishing/selling/.. or any other form of modification of this core engine is not allowed.
