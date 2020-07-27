@@ -48,8 +48,7 @@
      Here you can add all your plugins. *Note* The enabled plugins are necessary.
      */
 
-   const mysql = require('mysql'),
-             fs = require('fs'),
+   const fs = require('fs'),
              log = require('fancy-log'),
              chalk = require('chalk'),
              chalkAnimation = require('chalk-animation'),
