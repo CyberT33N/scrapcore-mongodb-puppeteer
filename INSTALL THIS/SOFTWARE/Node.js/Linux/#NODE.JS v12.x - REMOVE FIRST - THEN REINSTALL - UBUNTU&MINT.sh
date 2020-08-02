@@ -1,5 +1,3 @@
-#pwd <-- current directory
-#-------------------------------------------------------------------------------
 cd "$(dirname "$0")"
 pwd
 printf "\nWe will display now the current directory used:"
