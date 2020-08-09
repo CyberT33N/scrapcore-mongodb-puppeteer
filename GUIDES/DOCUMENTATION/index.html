@@ -2140,7 +2140,7 @@ On some websites you can only change the language when you change your IP! You c
         <BR>
 This config JSON file is the control point for everything! All important settings or account data can be changed there.
  <BR> <BR>
-The config.json file can be found at folder: <code>./scrap/admin/config.json</code>
+The config.json file can be found at folder: <code>./admin/config.json</code>
 
 
 
@@ -2863,7 +2863,7 @@ You can find those elements at file: <code>./admin/config.json</code>
 
 <BR>
 <BR>
-<strong style="font-weight:bold; font-size:25px;">2.</strong> At the folder <code>./scrap/lib</code> you can find the file <strong style="font-weight:bold; font-size:25px;">proxylist.js</strong> & <strong style="font-weight:bold; font-size:25px;">useragent.js</strong> where you can insert your proxies or User Agents!
+<strong style="font-weight:bold; font-size:25px;">2.</strong> At the folder <code>./lib</code> you can find the file <strong style="font-weight:bold; font-size:25px;">proxylist.js</strong> & <strong style="font-weight:bold; font-size:25px;">useragent.js</strong> where you can insert your proxies or User Agents!
 <BR>
   <BR>
 <strong style="font-weight:bold; font-size:25px;">Please notice that the default included proxies in this file are most of the time offline! You must include your own proxies! The same is for the User-Agent list you must include your own! (For default some samples are included!)</strong>
@@ -2892,7 +2892,7 @@ However the proxy changer was only tested with public proxies like <strong style
 
 <BR>
 <BR>
-You can define custom HTTP Headers and more at the <strong style="font-weight:bold; font-size:25px;">options object</strong> inside of the <strong style="font-weight:bold; font-size:25px;">downloadIMAGE</strong> function which can be found at the top area of the file <code>./scrap/start.js</code> (No warranty when customer will do changes!)
+You can define custom HTTP Headers and more at the <strong style="font-weight:bold; font-size:25px;">options object</strong> inside of the <strong style="font-weight:bold; font-size:25px;">downloadIMAGE</strong> function which can be found at the top area of the file <code>./start.js</code> (No warranty when customer will do changes!)
 
           </p>
         </div>
@@ -3007,7 +3007,7 @@ You can define custom HTTP Headers and more at the <strong style="font-weight:bo
 
                     <BR>    <BR> <strong style="font-weight:bold; font-size:25px;">You must increase your max_allowed_packet value at your my.ini / my.cnf file from your MySQL in order to use this feature! As example you can use max_allowed_packet=32M</strong>
 
-                  <BR>    <BR>        <BR>    <BR> You can find your download images at <code>./scrap/export/images</code>
+                  <BR>    <BR>        <BR>    <BR> You can find your download images at <code>./export/images</code>
 
 
 
@@ -3081,34 +3081,41 @@ You can define custom HTTP Headers and more at the <strong style="font-weight:bo
 <BR>
 <div>
   <p class="lead">
-  At this element we will tell the Bot if we want to include browser extensions  <BR><BR>
-
-Currently the extension names are hardcoded to 11 extensions and can be changed at:<BR>
-<code class="language-javascript">"extensionlist":"--disable-extensions-except=../../../../../lib/chromeextension/webrtc_anti_leak_prevent/eiadekoaikejlgdbkbdfeijglgfdalml/1.0.14_0,../../../../../lib/chromeextension/nimbus_screenrecorder/bpconcjcammlapcogcnnelfmaeghhagj/9.0.2_0,../../../../../lib/chromeextension/ipfuck/bjgmbpodpcgmnpfjmigcckcjfldcicnd/1.3_0,../../../../../lib/chromeextension/script_safe/oiigbmnaadbkfbmpbfijlflahbdbdgdf/1.0.9.3_0,../../../../../lib/chromeextension/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj/3.0.7_0,../../../../../lib/chromeextension/policycontrol/eekommagmgepaafaaegimeldlnnnolgn/0.3.5_0,../../../../../lib/chromeextension/alertblocker/ofjjanaennfbgpccfpbghnmblpdblbef/1.3_0,../../../../../lib/chromeextension/letmeout/hnfdibcbmlppjlkefinedeffoiomlecc/1.3_0,../../../../../lib/chromeextension/showmyip/pdnildedfbigagjbaigbalnfdfpijhaf/1.2.1_0,../../../../../lib/chromeextension/violentmonkey/jinjaccalgkegednnccohejagnlnfdag/2.12.7_0,../../../../../lib/chromeextension/touchvpn/bihmplhobchoageeokmgbdihknkjbknd/3.1.5_0"</code>
-
-<BR><BR>
-
-  <code>"extension1": "--load-extension=../../../../../lib/chromeextension/webrtc_anti_leak_prevent/eiadekoaikejlgdbkbdfeijglgfdalml/1.0.14_0",<BR><BR>
-  "extension2": "--load-extension=../../../../../lib/chromeextension/ipfuck/bjgmbpodpcgmnpfjmigcckcjfldcicnd/1.3_0",<BR><BR>
-  "extension3": "--load-extension=../../../../../lib/chromeextension/script_safe/oiigbmnaadbkfbmpbfijlflahbdbdgdf/1.0.9.3_0",<BR><BR>
-  "extension4": "--load-extension=../../../../../lib/chromeextension/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj/3.0.7_0",<BR><BR>
-  "extension5": "--load-extension=../../../../../lib/chromeextension/policycontrol/eekommagmgepaafaaegimeldlnnnolgn/0.3.5_0",<BR><BR>
-  "extension6": "--load-extension=../../../../../lib/chromeextension/alertblocker/ofjjanaennfbgpccfpbghnmblpdblbef/1.3_0",<BR><BR>
-  "extension7": "--load-extension=../../../../../lib/chromeextension/letmeout/hnfdibcbmlppjlkefinedeffoiomlecc/1.3_0",<BR><BR>
-  "extension8": "--load-extension=../../../../../lib/chromeextension/showmyip/pdnildedfbigagjbaigbalnfdfpijhaf/1.2.1_0",<BR><BR>
-  "extension9": "--load-extension=../../../../../lib/chromeextension/violentmonkey/jinjaccalgkegednnccohejagnlnfdag/2.12.7_0",<BR><BR>
-  "extension10": "--load-extension=../../../../../lib/chromeextension/touchvpn/bihmplhobchoageeokmgbdihknkjbknd/3.1.5_0",<BR><BR>
-  "extension11": "--load-extension=../../../../../lib/chromeextension/nimbus_screenrecorder/bpconcjcammlapcogcnnelfmaeghhagj/9.0.2_0"
-</code>
+  At this element we will tell the Bot if we want to include browser extensions (in some cases usefully for blocking scripts and improve the loading speed) <BR><BR>
 
 
-  <BR><BR>
+    <br>
+    <br>
 
-    <BR><BR>
-If you dont want to use any extensions just keep all fields empty. If you want to use extension then include them like above in the example.
+In order to use them you must download the extensions and include the files at this folder:
+<br><code>./lib/chromeextension</code>
 
-  <BR><BR>
-    Extensions must be located in <strong>./lib/chromeextension</strong> like showed above. For me on windows the current path was inside of the Puppeteer folder inside of the node_modules folder thats why I went 5 folder back with ../../../../../ You may have to change this depend on your OS
+
+    <br>
+    <br>
+
+    Then in your config.json file you add these lines:
+
+  <code>
+    "extensionlist": {    <br>
+       "extension1": "webrtc_anti_leak_prevent/eiadekoaikejlgdbkbdfeijglgfdalml/1.0.14_0",    <br>
+       "extension2": "script_safe/oiigbmnaadbkfbmpbfijlflahbdbdgdf/1.0.9.3_0",    <br>
+       "extension3": "modheader/idgpnmonknjnojddfkpgkljpfnnfcklj/3.0.7_0"    <br>
+    }
+  </code>
+
+<bR><BR>
+    You can add as much extension as you want. However use always unique names like <strong>extension1</strong>, <strong>extension2</strong>, ..
+
+<bR><BR>
+    If you want to disable extensions you use:
+  <code>
+    "extensionlist": ""
+  </code>
+
+
+
+
 
                 </div>
 
@@ -3288,7 +3295,7 @@ You can use the GUI for this install process or you can do it manually as explai
 
 
 <h1>Ubuntu & Linux Mint:</h1> <p class="lead">
-<code>sudo apt-get gnome-terminal curl gnome-screenshot</code>
+<code>sudo apt-get install gnome-terminal curl gnome-screenshot</code>
 
 
 
