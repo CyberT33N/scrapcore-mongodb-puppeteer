@@ -3,4 +3,5 @@
 cd /d %~dp0
 color 7
 node "BOT - Start.js"
-pause
+:: pause
+exit
