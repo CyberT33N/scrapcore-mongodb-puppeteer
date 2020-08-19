@@ -8,3 +8,4 @@ echo "$(dirname "$0")"
 printf "\n\nWe will start now your bot!\n\nPlease wait.. This maybe take some time..\n"
 node "BOT - Start.js"
 printf "\nWe finished the .sh file :) - Created by Dennis Demand( github.com/CyberT33N )\n"
+exit
