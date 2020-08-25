@@ -258,35 +258,36 @@ const fs = require('fs'),
 
 
 
-                                                           /*
-                                                           ████████████████████████████████████████████████████████████████████████████████
-                                                          */
 
-                                                           //############## GET HEADLESS VALUE ##################################
+                                                                     /*
+                                                                     ████████████████████████████████████████████████████████████████████████████████
+                                                                    */
 
-                                                           const headlessVALUE = json_config.headless;
+                                                                     //############## GET HEADLESS VALUE ##################################
 
-
-                                                           var disableGPU;
+                                                                     const headlessVALUE = json_config.headless;
 
 
-                                                           log( '\n\nWe will check now your headless value..headlessVALUE: ' + headlessVALUE );
-                                                           if( headlessVALUE ) {
-                                                           log('\n\nYou enabled headless..\n\n');
+                                                                     var disableGPU;
 
-                                                                disableGPU = '--disable-gpu';
 
-                                                           } //  if(headlessVALUE == 'yes') {
-                                                           else {
-                                                           log('\n\nYou disabled headless..\n\n');
+                                                                     log( '\n\nWe will check now your headless value..headlessVALUE: ' + headlessVALUE );
+                                                                     if( headlessVALUE ) {
+                                                                     log('\n\nYou enabled headless..\n\n');
 
-                                                                disableGPU = '--disable-popup-blocking';
+                                                                          disableGPU = '--disable-gpu';
 
-                                                          } // else from if( headless ) {
+                                                                     } //  if(headlessVALUE == 'yes') {
+                                                                     else {
+                                                                     log('\n\nYou disabled headless..\n\n');
 
-                                                            /*
-                                                            ████████████████████████████████████████████████████████████████████████████████
-                                                            */
+                                                                          disableGPU = '--disable-popup-blocking';
+
+                                                                    } // else from if( headless ) {
+
+                                                                      /*
+                                                                      ████████████████████████████████████████████████████████████████████████████████
+                                                                      */
 
 
 
@@ -316,6 +317,99 @@ const fs = require('fs'),
 
 
          log( '\n\n\nWE USE THIS HOMEPATH: ' + osHOME + '\n\n' );
+
+
+
+
+
+
+                                                                    var args = [
+                                                                    windowSizeComplete,
+
+                                                                    disableGPU,
+                                                                    '--disable-flash-3d',
+                                                                    '--no-sandbox',
+                                                                    // '--disable-setuid-sandbox',
+
+                                                                    '--disable-popup-blocking',
+                                                                    '--disable-notifications',
+                                                                    '--disable-dev-shm-usage',
+                                                                    '--force-webrtc-ip-handling-policy=disable-non-proxied-udp',
+                                                                    '--disable-flash-stage3d',
+                                                                    '--disable-java',
+                                                                    '--disable-internal-flash',
+                                                                    '--disable-cache',
+                                                                    '--disable-webgl', // webgl
+                                                                    '--disable-3d-apis', // webgl
+                                                                    //'--disable-extensions',
+                                                                    '--disable-webgl-image-chromium',
+                                                                    //'--disable-reading-from-canvas', // <-- youtube videos not playing with this enabled
+
+                                                                    '--lang=en'
+
+                                                                  ];
+
+
+
+
+
+
+
+                                           var browserProfilePath;
+                                           log( 'osPLATFORM: ' + osPLATFORM );
+                                           if( osPLATFORM == 'darwin' ) browserProfilePath = './lib/browserProfiles/';
+                                           if( osPLATFORM == 'linux' ) browserProfilePath = './lib/browserProfiles/';
+                                           if( osPLATFORM == 'win32' ) browserProfilePath = '../../../../../lib/browserProfiles/';
+                                           if( !config_browser_profile ) browserProfilePath = '';
+
+                                           log( 'browserProfilePath: ' + browserProfilePath + '\nconfig_browser_profile: ' + config_browser_profile );
+
+
+                                           var chromeExtensionPath;
+                                           if( osPLATFORM == 'darwin' ) chromeExtensionPath = './lib/chromeextension/';
+                                           if( osPLATFORM == 'linux' ) chromeExtensionPath = './lib/chromeextension/';
+                                           if( osPLATFORM == 'win32' ) chromeExtensionPath = '../../../../../lib/chromeextension/';
+                                           log( 'chromeExtension Path: ' + chromeExtensionPath );
+
+
+
+
+                                                     //############## extensions ##################################
+                                                     var extensionlist = json_config.extensionlist;
+                                                     //if( extensionlist.length !== 0 ) extensionlist = '--disable-extensions-except=' + chromeExtensionPath + extensionlist.split( ',' ).join( ',' + chromeExtensionPath );
+
+
+                                                     if( extensionlist.length !== 0 ){
+
+                                                         let extensionlistAR = [];
+                                                         for( let d in extensionlist ){
+                                                                extensionlistAR.push( chromeExtensionPath + extensionlist[d] );
+                                                                args.push( '--load-extension=' + chromeExtensionPath + extensionlist[d] );
+                                                         } // for( let d of extensionlist ){
+
+                                                      extensionlist = '--disable-extensions-except=' + extensionlistAR.join( ',' );
+                                                      args.push(extensionlist);
+
+                                                     } //  if( extensionlist.length !== 0 ){
+
+
+                                                     log( 'extensionlist: ' + extensionlist + '\n\nArgs: ' + args);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -792,127 +886,32 @@ log( 'ENTER checkSocksSpeed()' );
                                        browserStarted = true;
 
 
-                                       if( enable_screenImage == 'yes' ) process.nextTick( screenlooper );
 
 
 
-                                                            client = await puppeteer.launch({
-                                                             //executablePath: puppeteerBinaryPATH,
-                                                             //executablePath: '/snap/bin/chromium',
-                                                             //executablePath: '/usr/bin/google-chrome',
-                                                             //executablePath: '/home/t33n/Downloads/Linux_x64_749751_chrome-linux/chrome-linux/chrome',
-                                                            // executablePath: '/home/t33n/Downloads/firefox-78.0a1.en-US.linux-x86_64/firefox/firefox',
-                                                             headless: headlessVALUE, // true or false
-                                                             userDataDir: '../../../../../lib/browserProfiles/' + config_browser_profile,
-                                                             args: [
-                                                             windowSizeComplete,
+                                                                                               //  if( headlessVALUE ) args.push('--incognito');
 
-                                                             //'--proxy-server=' + proxySERVER,
+                                                                                                 client = await puppeteer.launch({
+                                                                                                  //executablePath: puppeteerBinaryPATH,
+                                                                                                  //executablePath: '/snap/bin/chromium',
+                                                                                                  //executablePath: '/usr/bin/google-chrome',
+                                                                                                  //executablePath: '/home/t33n/Downloads/Linux_x64_749751_chrome-linux/chrome-linux/chrome',
+                                                                                                 // executablePath: '/home/t33n/Downloads/firefox-78.0a1.en-US.linux-x86_64/firefox/firefox',
+                                                                                                  headless: headlessVALUE, // true or false
+                                                                                                  userDataDir: browserProfilePath + config_browser_profile,
+                                                                                                  args: args
 
-                                                             //serbia
-                                                           //'--proxy-server=socks5://us3229.nordvpn.com:1080',
-                                                           //'--host-resolver-rules="MAP * ~NOTFOUND , EXCLUDE us3229.nordvpn.com"',
-
-                                                               //random proxy
-                                                            //  '--proxy-server=' + proxy,
-
-
-                                                              //random proxy
-                                                            // '--proxy-server=http://localhost:8000',
-
-                                                              //random proxy
-                                                            // '--proxy-server=https://' + vpn_username + ':' + vpn_password + '@us3229.nordvpn.com:89',
-
-
-                                                           //'--proxy-server=https://rs7.nordvpn.com:89',
-
-
-                                                           // vietnam
-                                                           //'--proxy-server=https://vn9.nordvpn.com:89',
+                                                                                                });
 
 
 
 
+                                                                                                page = await client.newPage();
+                                                                                                await page.waitFor(5000);
+                                                                                                await page.bringToFront();
+                                                                                                await page.setViewport({width:windowWidth, height:windowHeight});
 
 
-                                                           '--disable-extensions-except=../../../../../lib/chromeextension/webrtc_anti_leak_prevent/eiadekoaikejlgdbkbdfeijglgfdalml/1.0.14_0,../../../../../lib/chromeextension/ipfuck/bjgmbpodpcgmnpfjmigcckcjfldcicnd/1.3_0,../../../../../lib/chromeextension/script_safe/oiigbmnaadbkfbmpbfijlflahbdbdgdf/1.0.9.3_0,../../../../../lib/chromeextension/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj/3.0.7_0,../../../../../lib/chromeextension/policycontrol/eekommagmgepaafaaegimeldlnnnolgn/0.3.5_0,../../../../../lib/chromeextension/alertblocker/ofjjanaennfbgpccfpbghnmblpdblbef/1.3_0,../../../../../lib/chromeextension/letmeout/hnfdibcbmlppjlkefinedeffoiomlecc/1.3_0,../../../../../lib/chromeextension/showmyip/pdnildedfbigagjbaigbalnfdfpijhaf/1.2.1_0,../../../../../lib/chromeextension/violentmonkey/jinjaccalgkegednnccohejagnlnfdag/2.12.7_0,../../../../../lib/chromeextension/touchvpn/bihmplhobchoageeokmgbdihknkjbknd/3.1.5_0',
-                                                       '--load-extension=../../../../../lib/chromeextension/webrtc_anti_leak_prevent/eiadekoaikejlgdbkbdfeijglgfdalml/1.0.14_0',
-                                                       '--load-extension=../../../../../lib/chromeextension/ipfuck/bjgmbpodpcgmnpfjmigcckcjfldcicnd/1.3_0',
-                                                       '--load-extension=../../../../../lib/chromeextension/script_safe/oiigbmnaadbkfbmpbfijlflahbdbdgdf/1.0.9.3_0',
-                                                       '--load-extension=../../../../../lib/chromeextension/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj/3.0.7_0',
-                                                       '--load-extension=../../../../../lib/chromeextension/policycontrol/eekommagmgepaafaaegimeldlnnnolgn/0.3.5_0',
-                                                       '--load-extension=../../../../../lib/chromeextension/alertblocker/ofjjanaennfbgpccfpbghnmblpdblbef/1.3_0',
-                                                       '--load-extension=../../../../../lib/chromeextension/letmeout/hnfdibcbmlppjlkefinedeffoiomlecc/1.3_0',
-                                                       '--load-extension=../../../../../lib/chromeextension/showmyip/pdnildedfbigagjbaigbalnfdfpijhaf/1.2.1_0',
-                                                       '--load-extension=../../../../../lib/chromeextension/violentmonkey/jinjaccalgkegednnccohejagnlnfdag/2.12.7_0',
-                                                        '--load-extension=../../../../../lib/chromeextension/touchvpn/bihmplhobchoageeokmgbdihknkjbknd/3.1.5_0',
-
-
-
-
-
-                                                             '--disable-flash-3d',
-
-
-
-                                                             // HEADLESS SCRAP ARGS
-                                                             disableGPU,
-                                                             //'--user-agent=' + randomUSERAGENT(),
-
-                                                             '--no-sandbox',
-                                                            // '--disable-setuid-sandbox',
-                                                             '--disable-popup-blocking',
-                                                             '--disable-notifications',
-                                                             '--disable-dev-shm-usage',
-                                                             '--force-webrtc-ip-handling-policy=disable-non-proxied-udp',
-
-                                                             '--disable-flash-stage3d',
-                                                             '--disable-java',
-                                                             '--disable-internal-flash',
-                                                             '--disable-cache',
-                                                             '--disable-webgl', // webgl
-                                                             '--disable-3d-apis', // webgl
-                                                             //'--disable-extensions',
-                                                             '--disable-webgl-image-chromium',
-                                                             '--disable-reading-from-canvas',
-                                                             '--lang=en']
-
-                                                           });
-
-
-
-                                                           page = await client.newPage();
-                                                           await page.waitFor(5000);
-                                                           await page.bringToFront();
-                                                           await page.setViewport({width:windowWidth, height:windowHeight});
-                                                           log( 'Browser should be started now..' );
-
-
-
-                                                           // auth with proxy
-                                                           //await page.authenticate({'username': vpn_username, 'password': vpn_password});
-
-  /*
-                                                           page.goto('https://browserleaks.com/ip', {waitUntil: 'networkidle0', timeout: 0});
-
-  */
-
-
-
-
-                                                           if( enable_proxy_request == 'yes' || enable_socks_request == 'yes' ){
-                                                           log('You choosed that proxies are enabled! We will choose now a random proxy..The proxy list can be found at ./lib/nordvpn_all_server.json\nIf you don´t want to use proxies please open ./admin/config.json and change it to: "enable_proxy_request":"no"');
-
-                                                                  if( enable_proxy_request == 'yes' && enable_socks_request == 'yes' ) {
-                                                                    log('WARNING -  you cant enable proxy and socks at the same time.. please choose one..');
-                                                                    return;
-                                                                  } // if( enable_proxy_request == 'yes' && enable_socks_request == 'yes' ) {
-                                                                    if( enable_proxy_request == 'yes') process.nextTick(randomproxylist_nordvpn);
-                                                                    if( enable_socks_request == 'yes') process.nextTick(randomSOCKSlist_nordvpn);
-
-
-                                                           } // if( enable_proxy_request == 'yes' || enable_socks_request == 'yes' ){
-                                                           else {
 
 
 
@@ -922,12 +921,6 @@ This browser window which will open will use the SAME profile as the real scrap 
 So all changes at the browser will be aswell at the main script browser!
 
 Please read the Documentation to understand how this Bot works!`);
-
-
-                                                           } // else from if( enable_proxy_request == 'yes' || enable_socks_request == 'yes' ){
-
-
-
 
 
 
